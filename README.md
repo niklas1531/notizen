@@ -1,3 +1,3 @@
 # Notizen App
 
-<a href='https://niklas1531.github.io/notizen/'>Link</a>
+Website online: <a href='https://niklas1531.github.io/notizen/' target='_blank'>Link</a>
