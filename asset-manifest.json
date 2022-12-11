@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/notizenApp-client/static/css/main.54eaaa0a.css",
+    "main.js": "/notizenApp-client/static/js/main.b064bd92.js",
+    "index.html": "/notizenApp-client/index.html",
+    "main.54eaaa0a.css.map": "/notizenApp-client/static/css/main.54eaaa0a.css.map",
+    "main.b064bd92.js.map": "/notizenApp-client/static/js/main.b064bd92.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.54eaaa0a.css",
+    "static/js/main.b064bd92.js"
+  ]
+}
