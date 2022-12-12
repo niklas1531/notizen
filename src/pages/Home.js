@@ -12,7 +12,9 @@ const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, logout 
     const [currCategory, setCurrCategory] = useState('')
     const [deleteModal, setDeleteModal] = useState(false)
     const [editModal, setEditModal] = useState(false)
+    const search = () => {
 
+    }
     const refresh = () => {
         axios.get('https://niklas1531-notes.herokuapp.com/notizen', { params: { id: currID } })
             .then(result => {
@@ -95,6 +97,8 @@ const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, logout 
                                 <option value='green'>Grün</option>
                                 <option value='yellow'>Gelb</option>
                                 <option value='blue'>Blau</option>
+                                <option value='pink'>Pink</option>
+                                <option value='purple'>Violett</option>
                             </select>
                         </div>
                         <input type='submit' value='Erstellen' />
@@ -103,6 +107,9 @@ const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, logout 
                 <div className="notes notes-mobile" id="notes">
                     <div className="btn-menu">
                         <button className="refresh-btn" onClick={refresh}><i className="fa-solid fa-arrow-rotate-right"></i></button>
+                        <input onChange={search} className="search-btn" type='text' disabled={true}/>
+                        <button className="filter-btn" disabled={true}><i className="fa-solid fa-filter"></i></button>
+                        
                     </div>
                     {deleteModal && <DeleteModal changeDeleteModal={changeDeleteModal} currNoteID={currNoteID} setDeleteModal={setDeleteModal} />}
                     {editModal && <EditModal changeEditModal={changeEditModal} currNoteID={currNoteID} setEditModal={setEditModal} currTitle={currTitle} setCurrTitle={setCurrTitle} currContent={currContent} setCurrContent={setCurrContent} currCategory={currCategory} setCurrCategory={setCurrCategory} />}

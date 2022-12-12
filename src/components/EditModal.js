@@ -23,6 +23,8 @@ const EditModal = ({ currNoteID, currTitle, setCurrTitle, currContent, setCurrCo
                         <option value='green'>Grün</option>
                         <option value='yellow'>Gelb</option>
                         <option value='blue'>Blau</option>
+                        <option value='pink'>Pink</option>
+                                <option value='purple'>Violett</option>
                     </select>
                 </div>
                 <hr />

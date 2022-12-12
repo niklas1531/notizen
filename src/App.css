@@ -210,9 +210,66 @@ nav button {
     gap: .5rem;
 }
 
+.refresh-btn {
+    background-color: var(--blue);
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: .5rem;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    transition-duration: 500ms;
+}
+
 .home .refresh-btn:hover {
     border-color: #fff;
     background-color: var(--lightBlue);
+}
+:disabled {
+    background-color: #dddddd !important;
+}
+.search-btn:disabled {
+    background-color: #222222 !important;
+}
+
+
+.home .filter-btn {
+    background-color: var(--blue);
+    transition-duration: 500ms;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: .5rem;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.home .search-btn {
+    background-color: #f2b36d;
+    background-image: url(./search-icon.svg);
+    background-size: 15px;
+    background-position: 45% 50%;
+    background-repeat: no-repeat;
+    transition-duration: 500ms;
+    width: 20px;
+    color: #000;
+    border: 1px solid transparent;
+    border-radius: .5rem;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    filter: invert(100%);
+}
+
+.home .search-btn:focus {
+    width: 150px;
+    background-position: 10px 50%;
+    padding-left: 40px;
+    cursor: text;
+    outline: none;
 }
 
 .home .notes .note-div {
@@ -534,15 +591,4 @@ nav button {
         gap: 1rem;
     }
 
-}
-
-.refresh-btn {
-    background-color: var(--blue);
-    color: #fff;
-    border: 1px solid transparent;
-    border-radius: .5rem;
-    font-weight: bold;
-    letter-spacing: .1rem;
-    padding: 5px 10px;
-    margin-bottom: 10px;
 }
