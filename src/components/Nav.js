@@ -1,8 +1,10 @@
+
 const Nav = ({ name, toggleDropdown, dropdown, logged }) => {
 
     const handleChange = () => {
         toggleDropdown(!dropdown)
     }
+
 
     const newNote = () => {
         document.getElementById('notes').classList.toggle('notes-mobile')

@@ -14,7 +14,7 @@ const EditModal = ({ currNoteID, currTitle, setCurrTitle, currContent, setCurrCo
          <button className="close" onClick={changeEditModal}><i className="fa-regular fa-circle-xmark fa-lg"></i></button>
             <h3>Notiz Bearbeiten</h3>
             <form onSubmit={updateNote} id='neueNotiz'>
-                <textarea placeholder='Titel' maxLength={35} rows='1' value={currTitle} onChange={e => setCurrTitle(e.target.value)} />
+                <textarea placeholder='Titel' maxLength={30} rows='1' value={currTitle} onChange={e => setCurrTitle(e.target.value)} />
                 <textarea placeholder='Teile deine Gedanken...' rows='5' value={currContent} onChange={e => setCurrContent(e.target.value)} />
                 <div className="category-div">
                     <label>Kategorie:</label>

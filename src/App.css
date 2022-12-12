@@ -163,7 +163,7 @@ nav button {
 }
 
 
-.home .input .category-div{
+.home .input .category-div {
     display: flex;
     gap: .5rem;
     margin-bottom: 20px;
@@ -205,6 +205,16 @@ nav button {
     position: relative;
 }
 
+.home .btn-menu {
+    display: flex;
+    gap: .5rem;
+}
+
+.home .refresh-btn:hover {
+    border-color: #fff;
+    background-color: var(--lightBlue);
+}
+
 .home .notes .note-div {
     width: 100%;
     min-height: 100vh;
@@ -225,9 +235,11 @@ nav button {
     padding: 10px 20px;
     position: relative;
 }
+
 .note-div ul li:last-child {
     border-bottom: none;
 }
+
 .note-div ul li p {
     width: 90%;
 }
@@ -262,14 +274,17 @@ nav button {
     gap: .5rem;
     align-items: center;
 }
+
 .title-maxwarning {
     color: #7B7B7B;
     font-size: small;
     margin: 0 0 10px 10px;
 }
+
 .title {
     margin-bottom: 10px !important;
 }
+
 .note-div .date {
     font-style: italic;
     font-size: small;
@@ -463,13 +478,14 @@ nav button {
 
 .close,
 .close:hover {
-    background-color: transparent !important; 
+    background-color: transparent !important;
     border: none !important;
     position: absolute;
     top: 5%;
     right: 5%;
     padding: 0 !important;
 }
+
 .add {
     display: none;
 }
@@ -485,15 +501,18 @@ nav button {
         margin-right: 15px;
         padding: 5px;
     }
+
     .add:hover {
         border: 1px solid #fff;
         border-radius: 50%;
         color: #fff;
         background-color: var(--lightBlue);
     }
+
     .home .input-mobile {
         display: none;
     }
+
     .home .input-mobile-yes {
         display: block;
         width: 100%;
@@ -502,7 +521,9 @@ nav button {
     .home .notes-mobile {
         width: 100%;
         display: block;
+
     }
+
     .home .notes-mobile-no {
         display: none;
     }
@@ -513,4 +534,15 @@ nav button {
         gap: 1rem;
     }
 
+}
+
+.refresh-btn {
+    background-color: var(--blue);
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: .5rem;
+    font-weight: bold;
+    letter-spacing: .1rem;
+    padding: 5px 10px;
+    margin-bottom: 10px;
 }

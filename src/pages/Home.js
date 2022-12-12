@@ -13,6 +13,19 @@ const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, logout 
     const [deleteModal, setDeleteModal] = useState(false)
     const [editModal, setEditModal] = useState(false)
 
+    const refresh = () => {
+        axios.get('https://niklas1531-notes.herokuapp.com/notizen', { params: { id: currID } })
+            .then(result => {
+                setNotizen(result.data)
+            })
+
+        console.log("CurrID: " + currID)
+        axios.get('https://niklas1531-notes.herokuapp.com/name', { params: { id: currID } })
+            .then(result => {
+                setName(result.data)
+            })
+    }
+
     const changeDeleteModal = () => {
         setDeleteModal(!deleteModal)
     }
@@ -34,6 +47,7 @@ const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, logout 
     const deleteNote = (e) => {
         setDeleteModal(true)
     }
+
 
     useEffect(() => {
         axios.get('https://niklas1531-notes.herokuapp.com/notizen', { params: { id: currID } })
@@ -72,7 +86,7 @@ const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, logout 
                 <div className="input input-mobile" id="input" >
                     <h3>Neue Notiz</h3>
                     <form onSubmit={createNote} id='neueNotiz'>
-                        <textarea placeholder='Titel' className='title' maxLength={35} rows='1' value={neueNotiz.title} onChange={e => setNeueNotiz(prev => ({ ...prev, ["title"]: e.target.value }))} />
+                        <textarea placeholder='Titel' className='title' maxLength={30} rows='1' value={neueNotiz.title} onChange={e => setNeueNotiz(prev => ({ ...prev, ["title"]: e.target.value }))} />
                         <textarea placeholder='Teile deine Gedanken...' rows='5' value={neueNotiz.content} onChange={e => setNeueNotiz(prev => ({ ...prev, ["content"]: e.target.value }))} />
                         <div className="category-div">
                             <label>Kategorie:</label>
@@ -87,8 +101,11 @@ const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, logout 
                     </form>
                 </div>
                 <div className="notes notes-mobile" id="notes">
+                    <div className="btn-menu">
+                        <button className="refresh-btn" onClick={refresh}><i className="fa-solid fa-arrow-rotate-right"></i></button>
+                    </div>
                     {deleteModal && <DeleteModal changeDeleteModal={changeDeleteModal} currNoteID={currNoteID} setDeleteModal={setDeleteModal} />}
-                    {editModal && <EditModal changeEditModal={changeEditModal} currNoteID={currNoteID} setEditModal={setEditModal} currTitle={currTitle} setCurrTitle={setCurrTitle} currContent={currContent} setCurrContent={setCurrContent} currCategory={currCategory} setCurrCategory={setCurrCategory}  />}
+                    {editModal && <EditModal changeEditModal={changeEditModal} currNoteID={currNoteID} setEditModal={setEditModal} currTitle={currTitle} setCurrTitle={setCurrTitle} currContent={currContent} setCurrContent={setCurrContent} currCategory={currCategory} setCurrCategory={setCurrCategory} />}
                     <div className="note-div">
                         <ul>
                             {notizen.map(note => (
