@@ -23,7 +23,7 @@ const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, logout 
         category: "red",
         title: "",
         content: "",
-        date: Date().toLocaleString()
+        date: new Date().toLocaleString()
 
     })
 
@@ -56,7 +56,7 @@ const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, logout 
                     category: "red",
                     title: "",
                     content: "",
-                    date: Date().toLocaleString()
+                    date: new Date().toLocaleString()
                 })
 
                 const success = result.status === 201
@@ -72,7 +72,7 @@ const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, logout 
                 <div className="input input-mobile" id="input" >
                     <h3>Neue Notiz</h3>
                     <form onSubmit={createNote} id='neueNotiz'>
-                        <textarea placeholder='Titel' rows='1' value={neueNotiz.title} onChange={e => setNeueNotiz(prev => ({ ...prev, ["title"]: e.target.value }))} />
+                        <textarea placeholder='Titel' className='title' maxLength={35} rows='1' value={neueNotiz.title} onChange={e => setNeueNotiz(prev => ({ ...prev, ["title"]: e.target.value }))} />
                         <textarea placeholder='Teile deine Gedanken...' rows='5' value={neueNotiz.content} onChange={e => setNeueNotiz(prev => ({ ...prev, ["content"]: e.target.value }))} />
                         <div className="category-div">
                             <label>Kategorie:</label>

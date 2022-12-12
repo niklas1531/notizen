@@ -125,6 +125,7 @@ nav button {
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    z-index: 3;
 }
 
 .dropdown button {
@@ -261,7 +262,14 @@ nav button {
     gap: .5rem;
     align-items: center;
 }
-
+.title-maxwarning {
+    color: #7B7B7B;
+    font-size: small;
+    margin: 0 0 10px 10px;
+}
+.title {
+    margin-bottom: 10px !important;
+}
 .note-div .date {
     font-style: italic;
     font-size: small;
@@ -497,6 +505,12 @@ nav button {
     }
     .home .notes-mobile-no {
         display: none;
+    }
+
+    .settings,
+    .editmodal {
+        width: 80% !important;
+        gap: 1rem;
     }
 
 }
