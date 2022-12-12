@@ -21,9 +21,11 @@ const Login = ({ logReg, changeLogReg, setCurrID, setLogged, currName, setCurrNa
                     } else {
                         setFailedLogin(false)
                         setCurrID(result.data.id)
+                        localStorage.setItem('currID', result.data.id)
                         setCurrName(result.data.name)
                         setCurrEmail(result.data.email)
                         setCurrPassword(result.data.password)
+                        localStorage.setItem('logged', true)
                         setLogged(true)
                     }
                 })

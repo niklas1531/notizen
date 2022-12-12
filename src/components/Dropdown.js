@@ -1,6 +1,7 @@
 const Dropdown = ({ logout, hideDropdown, handleSettings }) => {
     const logoutHandler = () => {
         logout()
+       localStorage.clear()
         hideDropdown()
     }
     const openSettings = () => {
