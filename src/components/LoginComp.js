@@ -9,14 +9,15 @@ const Login = ({ logReg, changeLogReg, setCurrID, setLogged, currName, setCurrNa
     const [confirmPassword, setConfirmPassword] = useState('')
     const [wrongPassword, setWrongPassword] = useState(false)
     const [failedlogin, setFailedLogin] = useState(false)
-    const [succReg, setSuccReg] = useState(false)
+    const [succReg, setSuccReg] = useState(null)
+    const [style, setStyle] = useState('')
 
     const login = () => {
         if (logReg === 'log') {
             console.log("Frontend email: " + email)
             axios.get('https://niklas1531-notes.herokuapp.com/login', { params: { email, password } })
                 .then(result => {
-                    if (result.data === 'not found') {
+                    if (result.data === 'error' || result.data === 'account with mail does not exist') {
                         setFailedLogin(true)
                     } else {
                         setFailedLogin(false)
@@ -37,8 +38,16 @@ const Login = ({ logReg, changeLogReg, setCurrID, setLogged, currName, setCurrNa
                 axios.post('https://niklas1531-notes.herokuapp.com/register', { email, password, name })
                     .then(result => {
                         console.log(result.data)
-                        setSuccReg(true)
-                        changeLogReg()
+                        if (result.data === 'Account with this email already exists') {
+                            setSuccReg('Account with this email already exists')
+                            setStyle('red')
+                        } else {
+                            setSuccReg('Successfull created user')
+                            setStyle('succReg')
+                            changeLogReg()
+                        }
+
+
                     })
             }
             else {
@@ -57,7 +66,7 @@ const Login = ({ logReg, changeLogReg, setCurrID, setLogged, currName, setCurrNa
             <button onClick={login} className="submit">{logReg === 'log' ? 'Login' : 'Register'}</button>
             {wrongPassword && <p className="red">Passwörter stimmen nicht überein!</p>}
             {failedlogin && <p className="red">Kein Nutzer gefunden!</p>}
-            {succReg && <p className="succReg">Successfully registered</p>}
+            <p className={style}>{succReg}</p>
             <div className="switch-div">
                 <p>{logReg === 'log' ? "Noch keinen Account?" : "Account vorhanden?"}</p>
                 <button onClick={changeLogReg}>{logReg === 'log' ? "Registrieren" : "Login"}</button>
