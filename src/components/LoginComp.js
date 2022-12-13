@@ -51,9 +51,9 @@ const Login = ({ logReg, changeLogReg, setCurrID, setLogged, currName, setCurrNa
         <div className="logincomp">
             <h3>{logReg === 'log' ? 'Login' : 'Register'}</h3>
             {logReg === 'reg' && <input type='text' placeholder="Benutzername" onChange={e => setName(e.target.value)} />}
-            <input type='email' placeholder="Email" onChange={e => setEmail(e.target.value)} />
-            <input type='password' placeholder="Password" onChange={e => setPassword(e.target.value)} />
-            {logReg === 'reg' && <input type='password' placeholder="Password bestätigen" onChange={e => setConfirmPassword(e.target.value)} />}
+            <input type='email' placeholder="Email" onChange={e => setEmail(e.target.value)} required={true}/>
+            <input type='password' placeholder="Password" onChange={e => setPassword(e.target.value)} required={true}/>
+            {logReg === 'reg' && <input type='password' placeholder="Password bestätigen" onChange={e => setConfirmPassword(e.target.value)} required={true} />}
             <button onClick={login} className="submit">{logReg === 'log' ? 'Login' : 'Register'}</button>
             {wrongPassword && <p className="red">Passwörter stimmen nicht überein!</p>}
             {failedlogin && <p className="red">Kein Nutzer gefunden!</p>}
