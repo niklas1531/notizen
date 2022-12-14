@@ -23,6 +23,7 @@ const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, sortDir
     }
 
     const refresh = () => {
+        setLoad(true)
         axios.get('https://niklas1531-notes.herokuapp.com/notizen', { params: { id: currID, sortDir: sortDir } })
             .then(result => {
                 setNotizen(result.data)
@@ -33,6 +34,7 @@ const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, sortDir
             .then(result => {
                 setName(result.data)
             })
+            setLoad(false)
     }
 
     const changeDeleteModal = () => {
@@ -121,7 +123,7 @@ const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, sortDir
                         <button className="sort-btn" onClick={sort}><i class="fas fa-sort-down"></i></button>
 
                     </div>
-                    {deleteModal && <DeleteModal changeDeleteModal={changeDeleteModal} currNoteID={currNoteID} setDeleteModal={setDeleteModal} />}
+                    {deleteModal && <DeleteModal refresh={refresh} changeDeleteModal={changeDeleteModal} currNoteID={currNoteID} setDeleteModal={setDeleteModal} />}
                     {editModal && <EditModal changeEditModal={changeEditModal} currNoteID={currNoteID} setEditModal={setEditModal} currTitle={currTitle} setCurrTitle={setCurrTitle} currContent={currContent} setCurrContent={setCurrContent} currCategory={currCategory} setCurrCategory={setCurrCategory} />}
                     {filterModal && <FilterModal changeFilterModal={changeFilterModal} currNoteID={currNoteID} setFilterModal={setFilterModal} />}
                     {sortModal && <SortModal currNoteID={currNoteID} setSortModal={setSortModal} />}

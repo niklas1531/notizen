@@ -657,6 +657,18 @@ nav button {
 
 
 /* LOAD ANIMATION */
+.load-div {
+    z-index: 5;
+    width: 100%;
+  height: 100%;
+  background-color: #c1d0d8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  border: 1px solid .5rem;
+  opacity: .4;
+}
 .load-wrap {
     width: 200px;
     height: 200px;
@@ -665,10 +677,10 @@ nav button {
     left: 50%;
     translate: -50% -50%;
     margin: 0;
-    z-index: 5;
     display: flex;
     justify-content: center;
     align-items: center;
+   z-index: 6;
 }
 
 .circle {
@@ -676,9 +688,9 @@ nav button {
     width: 30px;
     height: 30px;
     border-radius: 15px;
-    background-color: #4b9cdb;
+    background-color: rgb(34, 78, 255);
     margin: 5px;
-    box-shadow: 5px 5px 15px 4px #2158aa;
+    box-shadow: 5px 5px 15px 4px #b7cfff;
 }
 
 .load .circle:nth-last-child(1) {

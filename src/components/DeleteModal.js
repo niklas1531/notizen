@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const DeleteModal = ({ changeDeleteModal, currNoteID, setDeleteModal }) => {
+const DeleteModal = ({ changeDeleteModal, currNoteID, setDeleteModal, refresh }) => {
 
     const cancel = () => {
         changeDeleteModal()
@@ -11,6 +11,7 @@ const DeleteModal = ({ changeDeleteModal, currNoteID, setDeleteModal }) => {
             console.log(result.data)
         })
         setDeleteModal(false)
+        refresh()
     }
 
     return (
