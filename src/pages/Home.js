@@ -87,12 +87,7 @@ const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, sortDir
                     content: "",
                     date: new Date().toLocaleString()
                 })
-
-                const success = result.status === 201
-                if (success) {
-                    document.getElementById('neueNotiz').reset()
-                    setLoad(false)
-                }
+                setLoad(false)
             })
     }
     return (
