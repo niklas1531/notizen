@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Dropdown from './components/Dropdown'
 import Settings from './components/Settings'
+import Load from './components/Load';
 
 function App() {
   const [name, setName] = useState('')
@@ -16,7 +17,12 @@ function App() {
   const [logReg, setLogReg] = useState('log')
   const [settings, setSettings] = useState(false)
   const [sortDir, setSortDir] = useState('DESC')
+  const [load, setLoad] = useState(false)
 
+
+  const handleLoad = () => {
+  setLoad(!load)  
+  }
   const handleSettings = () => {
     setSettings(!settings)
   }
@@ -39,9 +45,10 @@ function App() {
 
   return (
     <div >
-      {logged ? <Home name={name} sortDir={sortDir} setSortDir={setSortDir} setName={setName} currID={currID} toggleDropdown={toggleDropdown} dropdown={dropdown} logged={logged} logout={logout} /> : <Login name={name} setName={setName} setCurrID={setCurrID} toggleDropdown={toggleDropdown} dropdown={dropdown} logReg={logReg} changeLogReg={changeLogReg} logged={logged} setLogged={setLogged} currName={currName} setCurrName={setCurrName} currEmail={currEmail} setCurrEmail={setCurrEmail} currPassword={currPassword} setCurrPassword={setCurrPassword} />}
+      {logged ? <Home name={name} sortDir={sortDir} setSortDir={setSortDir} setName={setName} currID={currID} toggleDropdown={toggleDropdown} dropdown={dropdown} logged={logged} logout={logout} setLoad={setLoad}/> : <Login setLoad={setLoad} name={name} setName={setName} setCurrID={setCurrID} toggleDropdown={toggleDropdown} dropdown={dropdown} logReg={logReg} changeLogReg={changeLogReg} logged={logged} setLogged={setLogged} currName={currName} setCurrName={setCurrName} currEmail={currEmail} setCurrEmail={setCurrEmail} currPassword={currPassword} setCurrPassword={setCurrPassword} />}
       {dropdown && <Dropdown logout={logout} hideDropdown={hideDropdown} handleSettings={handleSettings} />}
-      {settings && <Settings handleSettings={handleSettings} currID={currID} currName={currName} setCurrName={setCurrName} currEmail={currEmail} setCurrEmail={setCurrEmail} currPassword={currPassword} setCurrPassword={setCurrPassword} />}
+      {settings && <Settings  setLoad={setLoad} handleSettings={handleSettings} currID={currID} currName={currName} setCurrName={setCurrName} currEmail={currEmail} setCurrEmail={setCurrEmail} currPassword={currPassword} setCurrPassword={setCurrPassword} />}
+    {load && <Load />}
     </div>
   );
 }

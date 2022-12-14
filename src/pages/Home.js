@@ -6,7 +6,7 @@ import EditModal from "../components/EditModal";
 import FilterModal from "../components/FilterModal";
 import SortModal from "../components/SortModal";
 
-const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, sortDir, setSortDir }) => {
+const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, sortDir, setSortDir, setLoad}) => {
     const [notizen, setNotizen] = useState([])
     const [currNoteID, setCurrNoteID] = useState('')
     const [currTitle, setCurrTitle] = useState('')
@@ -78,6 +78,7 @@ const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, sortDir
 
     const createNote = (e) => {
         e.preventDefault()
+       setLoad(true)
         axios.post('https://niklas1531-notes.herokuapp.com/newnote', { user_id: currID, title: neueNotiz.title, content: neueNotiz.content, category: neueNotiz.category, date: neueNotiz.date })
             .then(result => {
                 setNeueNotiz({
@@ -90,6 +91,7 @@ const Home = ({ name, setName, toggleDropdown, dropdown, logged, currID, sortDir
                 const success = result.status === 201
                 if (success) {
                     document.getElementById('neueNotiz').reset()
+                    setLoad(false)
                 }
             })
     }

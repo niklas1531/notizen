@@ -4,23 +4,29 @@ import {useState } from "react"
 const Settings = ({ handleSettings, currID, currName, setCurrName, currEmail, setCurrEmail, currPassword, setCurrPassword }) => {
 
     const updateName = () => {
+       
         axios.put('https://niklas1531-notes.herokuapp.com/updatename', { name: currName, id: currID })
             .then(result => {
                 console.log(result.data)
+              
             })
     }
 
     const updateEmail = () => {
+       
         axios.put('https://niklas1531-notes.herokuapp.com/updateemail', { email: currEmail, id: currID })
         .then(result => {
             console.log(result.data)
+         
         })
     }
 
     const updatePassword = () => {
+       
         axios.put('https://niklas1531-notes.herokuapp.com/updatepassword', { password: currPassword, id: currID })
         .then(result => {
             console.log(result.data)
+           
         })
     }
 

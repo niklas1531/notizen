@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const EditModal = ({ currNoteID, currTitle, setCurrTitle, currContent, setCurrContent, currCategory, setCurrCategory, changeEditModal, setEditModal }) => {
+const EditModal = ({ handleLoad,currNoteID, currTitle, setCurrTitle, currContent, setCurrContent, currCategory, setCurrCategory, changeEditModal, setEditModal }) => {
     const updateNote = () => {
         axios.put('https://niklas1531-notes.herokuapp.com/edit', { title: currTitle, content: currContent, category: currCategory, date: new Date().toLocaleString(), id: currNoteID })
     setEditModal(false)
